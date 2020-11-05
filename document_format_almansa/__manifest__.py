@@ -12,10 +12,10 @@
     "depends": ["base", "account", "sale", "web", "stock", "product",],
     "license": "AGPL-3",
     "data": [
-        # layout
-        # "views/layout/external_layout_clean.xml",
         # delivery
         "views/delivery/report_delivery_document.xml",
+        # layout
+        "views/layout/external_layout_clean.xml",
         # sale_order
         # "views/sale/report_saleorder_document.xml",
         # Purchase_order
