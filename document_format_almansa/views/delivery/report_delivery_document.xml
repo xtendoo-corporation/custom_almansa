@@ -75,10 +75,10 @@
                     <t t-set="importeRec05" t-value="0"/>
                     <t t-set="importeIva4Total" t-value="0"/>
                     <t t-set="importeRec05Total" t-value="0"/>
-                    <div style="width:10%;float:left;">
+                    <div style="width:15%;float:left;">
                         <span>CÓDIGO</span>
                     </div>
-                    <div style="width:55%;float:left;">
+                    <div style="width:50%;float:left;">
                         <span>DESCRIPCIÓN</span>
                     </div>
                     <div style="width:10%;float:left;text-align:right;">
@@ -102,10 +102,10 @@
                     <t t-set="importeTotal" t-value="0"/>
                     <t t-foreach="o.move_ids_without_package.sorted(key=lambda m: m.product_id.id)" t-as="move">
                         <t t-foreach="move.move_line_ids.sorted(key=lambda ml: ml.location_id.id)" t-as="move_line">
-                            <div style="width:10%;float:left;">
+                            <div style="width:15%;float:left;">
                                 <span t-field="move_line.product_id.default_code"></span>
                             </div>
-                            <div style="width:55%;float:left;">
+                            <div style="width:50%;float:left;">
                                 <span t-field="move_line.product_id.name"></span>
                             </div>
                             <div style="width:10%;float:left;text-align:right;">
@@ -203,7 +203,7 @@
                 <t t-set="importeTotalImp" t-value="importeTotal + round(importeTotalIva,2)"/>
                 <!--  fin calculo del total  -->
                 <!--  Desglose  -->
-                <div style="margin-top:-10px;width:40%;float:right;font-size:0.7em;margin-right:1.2%;">
+                <div style="margin-top:-10px;width:40%;float:right;margin-right:1.2%;">
                 <!--  Base imponible  -->
                     <div style="width:60%;float:left;">
                         <span>Base imponible</span>
@@ -215,7 +215,7 @@
                 </div>
                 <!--  Fin base imponible  -->
                 <!--  desglose de Impuestos  -->
-                <div style="width:40%;float:right;font-size:0.7em;clear:both;margin-right:1.2%;">
+                <div style="width:40%;float:right;clear:both;margin-right:1.2%;">
                     <t t-foreach="o.sale_id.amount_by_group" t-as="amount_by_group">
                         <t t-if="amount_by_group[3] == 1 and o.sale_id.amount_untaxed == amount_by_group[2]">
                             <div>
@@ -242,7 +242,7 @@
                 </div>
                 <!--  Fin desglose impuestos  -->
                 <!--  Total  -->
-                <div style="width:40%;float:right;font-size:0.7em;clear:both;margin-right:1.2%;">
+                <div style="width:40%;float:right;clear:both;margin-right:1.2%;">
                     <div style="width:60%;float:left;">
                         <b>
                             <span>Total </span>
