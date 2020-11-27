@@ -126,25 +126,25 @@
                                             <t t-set="isIVA" t-value="tax_name.find('IVA')"/>
                                     <!--  acumulacion de las cantidad de cada iva ventas  -->
                                             <t t-if="tax.amount == 21.0">
-                                                <t t-set="importeIva21" t-value="importeIva21 +(importeTotalGD*0.21 )"/>
-                                                <t t-set="importeIva21Total" t-value="importeIva21Total +importeTotalGD"/>
+                                                <t t-set="importeIva21" t-value="importeIva21 +(importeTotal*0.21 )"/>
+                                                <t t-set="importeIva21Total" t-value="importeIva21Total +importeTotal"/>
                                             </t>
                                             <t t-if="tax.amount == 5.2">
-                                                <t t-set="importeRec52" t-value="importeRec52 + importeTotalGD *0.052"/>
+                                                <t t-set="importeRec52" t-value="importeRec52 + importeTotal *0.052"/>
                                             </t>
                                             <t t-if="tax.amount == 10.0">
-                                                <t t-set="importeIva10" t-value="importeIva10 +(importeTotalGD*0.10 )"/>
-                                                <t t-set="importeIva10Total" t-value="importeIva10Total +importeTotalGD"/>
+                                                <t t-set="importeIva10" t-value="importeIva10 +(importeTotal*0.10 )"/>
+                                                <t t-set="importeIva10Total" t-value="importeIva10Total +importeTotal"/>
                                             </t>
                                             <t t-if="tax.amount == 1.4">
-                                                <t t-set="importeRec14" t-value="importeRec14 +importeTotalGD *0.014"/>
+                                                <t t-set="importeRec14" t-value="importeRec14 +importeTotal *0.014"/>
                                             </t>
                                             <t t-if="tax.amount == 4.0">
-                                                <t t-set="importeIva4" t-value="importeIva4 +(importeTotalGD*0.04 )"/>
-                                                <t t-set="importeIva4Total" t-value="importeIva4Total +importeTotalGD"/>
+                                                <t t-set="importeIva4" t-value="importeIva4 +(importeTotal*0.04 )"/>
+                                                <t t-set="importeIva4Total" t-value="importeIva4Total +importeTotal"/>
                                             </t>
                                             <t t-if="tax.amount == 0.50">
-                                                <t t-set="importeRec05" t-value="importeRec05 +importeTotalGD *0.005"/>
+                                                <t t-set="importeRec05" t-value="importeRec05 +importeTotal *0.005"/>
                                             </t>
                                     <!--  fin acumulaciones de las cantuidades de iva ventas  -->
                                         </t>
@@ -181,7 +181,7 @@
                 <!-- Fin Lineas -->
                 <hr style="height:2px;width:101%;background-color:black;margin-left:-15px;clear:both;"/>
                 <!--  calculo del total  -->
-                <t t-set="importeTotalIva" t-value="0"/>
+                <t t-set="importeTotalIva" t-value="0.00"/>
                 <t t-if="importeIva21 != 0">
                     <t t-set="importeTotalIva" t-value="importeTotalIva + round(importeIva21,2)"/>
                 </t>

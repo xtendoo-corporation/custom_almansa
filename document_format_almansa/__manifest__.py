@@ -23,7 +23,7 @@
         # Invoice
         # "views/invoice/report_invoice_document.xml",
         # Product Label
-        # "views/product_label/paper_format.xml",
+        "views/label/product_label.xml",
     ],
     "demo": [],
     "installable": True,
