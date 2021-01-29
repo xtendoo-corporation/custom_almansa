@@ -13,7 +13,6 @@
     ],
     'license': 'AGPL-3',
     'data': [
-        'views/sale_order_views.xml',
         'security/security_group.xml',
     ],
     'installable': True,
