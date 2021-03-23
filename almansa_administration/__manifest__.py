@@ -14,6 +14,7 @@
     'license': 'AGPL-3',
     'data': [
         'security/security_group.xml',
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'auto_install': True,
