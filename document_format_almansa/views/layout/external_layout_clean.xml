@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <template id="document_format_almansa.external_layout_clean_almansa" inherit_id="web.external_layout_clean">
-            <!--  Header  -->
+           <!--  Header  -->
             <xpath expr="//div[@class='o_clean_header']" position="replace">
                 <div>
                     <div class="col-6" style="display:block; width:40%;float:left;">
@@ -65,13 +65,55 @@
             <!--  Fin Header  -->
             <!--  Footer  -->
             <xpath expr="//div[@class='row mt8']" position="replace">
-            <div class="row mt8">
-                <div class="col-1">
-                    <ul t-if="report_type == 'pdf'" class="list-inline pagenumber float-right text-center">
-                        <li class="list-inline-item"><strong><span class="page"/></strong></li>
-                    </ul>
+               <t t-if="invoice_number">
+                    <span t-esc="invoice_number"/>
+                  </t>
+             <div class="row mt8">
+                    <div class="col-6">
+                         <t t-if="not is_purchase">
+                             <span t-field="company.report_footer" />
+                         </t>
+                        <t t-else="">
+                        </t>
+                    </div>
+                    <div class="col-4 text-right">
+                        <span
+                            class="company_address"
+                            t-field="company.partner_id"
+                            t-options='{"widget": "contact", "fields": ["email", "phone"], "no_marker": true}'
+                        />
+                    </div>
+                    <div class="col-2">
+                        <ul
+                            t-if="report_type == 'pdf'"
+                            class="list-inline pagenumber float-right text-center"
+                        >
+                            <li class="list-inline-item">
+                                <strong>
+                                    <span class="page" />
+                                    /
+                                    <span class="topage" />
+                                </strong>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+                <div class="row mt8">
+                    <div class="col-12">
+                        <span
+                            style="font-size: 10px; line-height: 0px;"
+                            t-field="company.report_header"
+                        />
+                    </div>
+                </div>
+                <div class="row mt8">
+                    <div class="col-12">
+                        <span
+                            style="font-size: 10px; line-height: 0px;"
+                            t-field="company.company_registry"
+                        />
+                    </div>
+                </div>
             </xpath>
             <!--  Fin footer  -->
         </template>
