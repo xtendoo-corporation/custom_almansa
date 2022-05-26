@@ -1,31 +1,21 @@
-# -*- coding: utf-8 -*-
-
 {
-    "name": "document_format_almansa",
-    "summary": """Formatos de documentos Almansa Santos""",
-    "version": "12.0.1.0.0",
-    "description": """Formatos de documentos Almansa Santos""",
-    "author": "DDL",
+    "name": "Document Format Almansa",
+    "summary": """Formatos de documentos para Almansa""",
+    "version": "13.0.1.0.0",
+    "description": """Formatos de documentos para Almansa""",
+    "author": "Daniel Dominguez",
     "company": "Xtendoo",
-    "website": "http://www.xtendoo.com",
+    "website": "http://xtendoo.es",
     "category": "Extra Tools",
-    "depends": ["base", "account", "sale", "web", "stock", "product",],
     "license": "AGPL-3",
-    "data": [
-        # delivery
-        "views/delivery/report_delivery_document.xml",
-        # layout
-        "views/layout/external_layout_clean.xml",
-        # sale_order
-        # "views/sale/report_saleorder_document.xml",
-        # Purchase_order
-        # "views/purchase/report_purchaseorder_document.xml",
-        # Invoice
-        # "views/invoice/report_invoice_document.xml",
-        # Product Label
-        "views/label/product_label.xml",
+    "depends": [
+        "document_format",
     ],
-    "demo": [],
+    "data": [
+        "views/layout/external_layout_clean.xml",
+        "views/invoice/invoice_document.xml",
+        "views/invoice/invoice_gruped_by_picking.xml",
+    ],
     "installable": True,
     "auto_install": False,
 }
