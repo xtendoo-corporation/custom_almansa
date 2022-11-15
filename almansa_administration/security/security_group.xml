@@ -7,6 +7,12 @@
             <field name="comment">Grupo de comerciales</field>
         </record>
         <!-- Fin Comerciales -->
+        <!-- Ver Márgenes -->
+        <record id="show_margin" model="res.groups">
+            <field name="name">Show margin</field>
+            <field name="comment">Mostrar márgenes</field>
+        </record>
+        <!-- Fin ver Márgenes -->
         <!-- Regla de registro-->
          <record id="no_create_no_edit_contacts" model="ir.rule">
             <field name="name">Contactos: no crear ni editar</field>
@@ -17,6 +23,6 @@
             <field name="perm_unlink" eval="True"/>
             <field name="perm_write" eval="True"/>
             <field name="perm_read" eval="False"/>
-        </record>       
+        </record>
     </data>
 </odoo>

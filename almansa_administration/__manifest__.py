@@ -10,9 +10,14 @@
     'depends': [
         'base',
         'sale',
+        'sale_margin',
+        'sale_order_margin_percent',
+        'sale_order_line_margin_percent'
     ],
     'license': 'AGPL-3',
     'data': [
+        'views/sale_order_views.xml',
+        'views/sale_order_line_views.xml',
         'security/security_group.xml',
         'security/ir.model.access.csv',
     ],

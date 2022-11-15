@@ -1,20 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 	<data>
-		<record id="sale_order_form_ihnerit" model="ir.ui.view">
-			<field name="name">
-				sale.order.form.inherit
-			</field>
-			<field name="model">
-				sale.order
-			</field>
-			<field name="inherit_id" ref="sale.view_order_form" />
+<!--		<record id="sale_order_form_ihnerit" model="ir.ui.view">-->
+<!--			<field name="name">sale.order.form.inherit</field>-->
+<!--			<field name="model">sale.order</field>-->
+<!--			<field name="inherit_id" ref="sale.view_order_form" />-->
+<!--			<field name="arch" type="xml">-->
+<!--				<xpath expr="//field[@name='partner_id']" position="replace">-->
+<!--					<field name="is_commercial" invisible="0" />-->
+<!--					<field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" options="{&quot;always_reload&quot;: True,&quot;no_create&quot;: is_commercial}" />-->
+<!--				</xpath>-->
+<!--			</field>-->
+<!--		</record>-->
+
+        <record id="sale_order_form_margin_ihnerit" model="ir.ui.view">
+			<field name="name">sale.order.form.margin.inherit</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale_margin.sale_margin_sale_order"/>
 			<field name="arch" type="xml">
-				<xpath expr="//field[@name='partner_id']" position="replace">
-					<field name="is_commercial" invisible="1" />
-					<field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" options="{&quot;always_reload&quot;: True,&quot;no_create&quot;: is_comercial}" />
-				</xpath>
-			</field>
-		</record>
+				<field name="margin" position="replace">
+                    <field name="show_margin" invisible="1"></field>
+                    <field name="margin" attrs="{'invisible': [('show_margin', '=', False)]}"></field>
+                </field>
+            </field>
+        </record>
+        <record id="sale_order_form_margin_2_ihnerit" model="ir.ui.view">
+			<field name="name">sale.order.form.margin.2.inherit</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale_order_margin_percent.view_sale_order_margin_percent_form"/>
+			<field name="arch" type="xml">
+				<field name="percent" position="replace">
+                    <field name="show_margin" invisible="1"></field>
+                    <field name="percent" widget="progressbar" attrs="{'invisible': [('show_margin', '=', False)]}"></field>
+                </field>
+            </field>
+        </record>
+         <record id="sale_order_form_margin_3_ihnerit" model="ir.ui.view">
+			<field name="name">sale.order.form.margin.3.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree//field[@name='purchase_price']" position="replace">
+                    <field name="show_margin" invisible="1"></field>
+                    <field name="purchase_price" optional="hide" attrs="{'invisible': [('show_margin', '=', False)]}"/>
+                </xpath>
+                 <xpath expr="//field[@name='order_line']/tree//field[@name='margin']" position="replace">
+                    <field name="show_margin" invisible="1"></field>
+                    <field name="margin" optional="hide" attrs="{'invisible': [('show_margin', '=', False)]}"/>
+                </xpath>
+                 <xpath expr="//field[@name='order_line']/tree//field[@name='margin_percent']" position="replace">
+                    <field name="show_margin" invisible="1"></field>
+                    <field name="margin_percent" optional="hide" attrs="{'invisible': [('show_margin', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='margin_percent'][2]" position="replace">
+                </xpath>
+            </field>
+         </record>
 	</data>
 </odoo>

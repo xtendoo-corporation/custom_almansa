@@ -18,8 +18,22 @@ class AdministratorMixinRule(models.Model):
 
     def _get_default_commercial(self):
         return self.env["res.users"].has_group(
-                "dji_administration.commercial_group"
+                "almansa_administration.commercial_group"
             )
+
+    show_margin = fields.Boolean(
+        compute='_is_show_margin',
+        string="Show margin",
+        default=lambda self: self._get_default_show_margin()
+    )
+
+    def _is_show_margin(self):
+        self.show_margin = self._get_default_show_margin()
+
+    def _get_default_show_margin(self):
+        return self.env["res.users"].has_group(
+            "almansa_administration.show_margin"
+        )
 
 
 
